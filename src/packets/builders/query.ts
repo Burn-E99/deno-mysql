@@ -1,5 +1,5 @@
 import { replaceParams } from "../../../deps.ts";
-import { BufferWriter, encode } from "../../buffer.ts";
+import { BufferWriter, encode, decode } from "../../buffer.ts";
 
 /** @ignore */
 export function buildQuery(sql: string, params: any[] = []): Uint8Array {
@@ -9,5 +9,6 @@ export function buildQuery(sql: string, params: any[] = []): Uint8Array {
   const writer = new BufferWriter(new Uint8Array(data.length + 1));
   writer.write(0x03);
   writer.writeBuffer(data);
+  console.log(decode(writer.buffer))
   return writer.buffer;
 }
