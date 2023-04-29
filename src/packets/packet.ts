@@ -25,6 +25,7 @@ export class SendPacket {
     data.write(this.header.no);
     data.writeBuffer(body);
     log.debug(`send: ${data.length}B \n${byteFormat(data.buffer)}\n`);
+    console.log(`send: ${data.length}B \n${byteFormat(data.buffer)}\n`)
     try {
       let wrote = 0;
       do {
